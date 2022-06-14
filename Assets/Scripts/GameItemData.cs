@@ -2,24 +2,24 @@
 
 public class GameItemData 
 {
-    private Sprite _sprite;
-    private int _amount;
+    public Sprite Sprite;
+    public int Amount;
 
     public GameItemData(Sprite sprite)
     {
-        _sprite = sprite;
-        _amount = 1;
+        Sprite = sprite;
+        Amount = 1;
     }
 
     public void IncreaseAmount()
     {
-        _amount++;
+        Amount++;
     }
 
     public bool DecreaseAmount()
     {
-        _amount--;
+        Amount--;
 
-        return _amount > 0;
+        return Amount > 0;
     }
 }
