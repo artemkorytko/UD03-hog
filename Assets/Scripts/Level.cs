@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
@@ -6,7 +5,7 @@ using System;
 public class Level : MonoBehaviour
 {
     private GameItem[] _gameItems;
-    private int _itenmsCount;
+    private int _itemsCount;
 
     public event Action OnCompleted;
     public event Action<string> OnItemListChanged;
@@ -20,14 +19,14 @@ public class Level : MonoBehaviour
             _gameItems[i].OnFind += OnFindItem;
         }
 
-        _itenmsCount = _gameItems.Length;
+        _itemsCount = _gameItems.Length;
     }
 
     private void OnFindItem(string name)
     {
-        _itenmsCount--;
+        _itemsCount--;
 
-        if (_itenmsCount > 0) ;
+        if (_itemsCount > 0)
         {
             OnItemListChanged.Invoke(name);
         }
@@ -37,25 +36,22 @@ public class Level : MonoBehaviour
         }
     }
 
-    public void GetItemDictionary()
+    public Dictionary<string, GameItemData> GetItemDictionary()
     {
-        Dictionary<string, GameItemData> itemsData = new Dictionary<string, GameItemData>
+        Dictionary<string, GameItemData> itemsData = new Dictionary<string, GameItemData>();
 
             for (int i = 0; i < _gameItems.Length; i++)
-        {
-            string key =
-            if (itemsData.ContainsKey(_gameItems[i].Name)
+            {
+                string key = _gameItems[i].Name;
+            if (itemsData.ContainsKey(key))
+            {
+                itemsData[key].IncreaseAmount();
+            }
+            else
+            {
+                itemsData.Add(key, new GameItemData(_gameItems[i].Sprite));
+            }
         }
-    }
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        return itemsData;
     }
 }

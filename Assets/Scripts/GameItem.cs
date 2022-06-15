@@ -6,15 +6,16 @@ using System;
 
 public class GameItem : MonoBehaviour
 {
-    private string Name;
+    public Sprite Sprite;
+    public string Name;
     private SpriteRenderer _spriteRenderer;
-
     public event Action<string> OnFind;
 
     private void Start()
     {
         _spriteRenderer = GetComponent<SpriteRenderer>();
         Name = _spriteRenderer.sprite.name;
+        Sprite = _spriteRenderer.sprite;
 
     }
 

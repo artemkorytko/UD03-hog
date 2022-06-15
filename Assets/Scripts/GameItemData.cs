@@ -4,19 +4,19 @@ using UnityEngine;
 
 public class GameItemData 
 {
-    private Sprite _sprite;
-    private int _amount;
+    public Sprite Sprite;
+    public int Amount;
 
     public GameItemData(Sprite sprite)
     {
-        _sprite = sprite;
-        _amount = 1;
+        Sprite = sprite;
+        Amount = 1;
     }
 
     public bool DecreaseAmount()
     {
-        _amount--;
-        if (_amount <= 0)
+        Amount--;
+        if (Amount <= 0)
         {
             return false;
         }
@@ -26,7 +26,7 @@ public class GameItemData
 
     public void IncreaseAmount()
     {
-        _amount++;
+        Amount++;
     }
 
     // Start is called before the first frame update
