@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class GameManager : MonoBehaviour
 {
@@ -21,8 +22,6 @@ public class GameManager : MonoBehaviour
 
     private void Initialize()
     {
-        _currentLevel.Initialize();
-        
         mainPanel.SetActive(true);
         gamePanel.gameObject.SetActive(false);
         winPanel.SetActive(false);
@@ -31,6 +30,8 @@ public class GameManager : MonoBehaviour
     private void CreateLevel()
     {
         _currentLevel = InstantiateLevel(_currentLevelIndex);
+        _currentLevel.name = Random.Range(0, 100).ToString();
+        _currentLevel.Initialize();
     }
 
     private Level InstantiateLevel(int index)
@@ -83,7 +84,6 @@ public class GameManager : MonoBehaviour
     public void StartNewGame()
     {
         CreateLevel();
-        _currentLevel.Initialize();
         StartGame();
     }
 }

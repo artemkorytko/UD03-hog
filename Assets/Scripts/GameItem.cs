@@ -8,7 +8,7 @@ public class GameItem : MonoBehaviour
    private SpriteRenderer _spriteRenderer;
    public event Action<string> OnFind; 
 
-   private void Start()
+   private void Awake()
    {
       _spriteRenderer = GetComponent<SpriteRenderer>();
       Name = _spriteRenderer.sprite.name;
