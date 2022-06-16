@@ -1,18 +1,33 @@
-using System.Collections;
-using System.Collections.Generic;
+using TMPro;
+using UnityEngine.UI;
 using UnityEngine;
 
 public class UIItem : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private Image image;
+    [SerializeField] private TextMeshProUGUI countText;
+    private int _count;
+    public void SetSprite(Sprite sprite)
     {
-        
+        image.sprite = sprite;
+    }
+    public void SetCount(int count)
+    {
+        _count = count;
+        countText.text = _count.ToString();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Decrease()
     {
-        
+        _count--;
+        if (_count > 0)
+        {
+            countText.text = _count.ToString();
+        }
+        else
+        {
+            gameObject.SetActive(false);
+        }
     }
+
 }

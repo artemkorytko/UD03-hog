@@ -2,23 +2,23 @@ using UnityEngine;
 
 public class GameItemData
 {
-    private Sprite _sprite;
-    private Sprite _amount;
+    public Sprite Sprite;
+    public int Amount;
 
     public GameItemData(Sprite sprite)
     {
-        _sprite = sprite;
-        _amount = 1;
+        Sprite = sprite;
+        Amount = 1;
     }
     public void IncreAmaunt()
     {
-        _amaunt++;
+        Amount++;
     }
     
     public bool DecreaseAmount()
     {
-        _amount--;
-        if (_amaunt <= 0)
+        Amount--;
+        if (Amount <= 0)
         {
             return false;
         }

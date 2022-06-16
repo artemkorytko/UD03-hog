@@ -1,30 +1,33 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 public class GameItem : MonoBehaviour
 {
+    public Sprite Sprite;
+    private string Name;
     private SpriteRenderer _spriteRenderer;
 
-    // Start is called before the first frame update
+    public event Action<string> OnFind;
+
+
     private void Start()
     {
         _spriteRenderer = GetComponent<SpriteRenderer>();
+        Name = _spriteRenderer.sprite.name;
+        Sprite = _spriteRenderer.sprite;
     }
     private void OnMauseUpAsButton()
     {
         Find();
     }
 
-    private void Faind()
+    private void Find()
     {
         Debug.Log(message: $"Find object{gameObject.name}");
+
+        OnFind.Invoke(Name);
     }
 
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+
 }
