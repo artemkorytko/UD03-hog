@@ -19,9 +19,9 @@ public class UIGamePanel : MonoBehaviour
 
 
             UIItem item = Instantiate(prefab, content);
-            item.SetSprite(itemsData[key.Sprite);
-            item.SetCount(itemsData[key.Amount);
-            items.Add(key, item)
+            item.SetSprite(itemsData[key].Sprite);
+            item.SetCount(itemsData[key].Amount);
+            items.Add(key, item);
         }
     }
-} }
+} 

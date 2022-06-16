@@ -14,10 +14,10 @@ public class level : MonoBehaviour
         _gameItems = GetComponentsInChildren<GameItem>();
         for (int i = 0; i < _gameItems.Length; i++)
         {
-            _gameItems[i].OnFind += OnFindItem();
+            _gameItems[i].OnFind += OnFindItem;
 
         }
-        _itemsCount = _gameItems.Lenght;
+        _itemsCount = _gameItems.Length;
     }
     private void OnFindItem(string name)
     {
@@ -35,7 +35,7 @@ public class level : MonoBehaviour
     {
         Dictionary<string, GameItemData> itemsData = new Dictionary<string, GameItemData>();
 
-        for (int i = 0; i < _gemeItems.Lenght; i++)
+        for (int i = 0; i < _gameItems.Length; i++)
         {
             string key = _gameItems[i].name;
             if (itemsData.ContainsKey(key))
@@ -44,7 +44,7 @@ public class level : MonoBehaviour
             }
             else
             {
-                itemsData.Add(Key, new GemeItemData(_gameItems[i].Sprite));
+                itemsData.Add(key, new GameItemData(_gameItems[i].Sprite));
 
             }
         }
