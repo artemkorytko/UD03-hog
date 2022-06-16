@@ -907,6 +907,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fbfff2029f0543d69920bba78719242, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  allLevels:
+  - {fileID: 2161142266883287629, guid: 228c3d50b526c4b94b53ec6e1bc28e5e, type: 3}
+  mainPanel: {fileID: 1147879509}
+  gamePanel: {fileID: 1560884736}
+  winPanel: {fileID: 1827527634}
 --- !u!4 &1348023290
 Transform:
   m_ObjectHideFlags: 0
@@ -1194,8 +1199,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbad587c5024b44abb1f1c6e579efb22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  content: {fileID: 0}
-  prefab: {fileID: 0}
+  content: {fileID: 1389550581}
+  prefab: {fileID: 4186034963367157053, guid: fe6ee4128bf6f4f4184d42e62b15324e, type: 3}
 --- !u!1 &1597118825
 GameObject:
   m_ObjectHideFlags: 0
@@ -1279,7 +1284,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1597118828}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1348023289}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: StartGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1597118828
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1401,7 +1418,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1689864778}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1348023289}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: StartNewGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1689864778
 MonoBehaviour:
   m_ObjectHideFlags: 0

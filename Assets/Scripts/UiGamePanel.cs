@@ -9,7 +9,23 @@ public class UiGamePanel : MonoBehaviour
 
     public void Initialize(Level level)
     {
+        foreach (var key in items.Keys)
+        {
+            Destroy(items[key].gameObject);
+        }
+        items.Clear();
+        
         GenerateList(level.GetItemDictionary());
+
+        level.OnItemListChanged += OnItemListChanged;
+    }
+
+    private void OnItemListChanged(string name)
+    {
+        if (items.ContainsKey(name))
+        {
+            items[name].Decrease();
+        }
     }
 
     private void GenerateList(Dictionary<string, GameItemData> itemsData)
