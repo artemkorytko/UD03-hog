@@ -14,6 +14,7 @@ public class Level : MonoBehaviour
 
     public void Initialize()
     {
+        
         _gameItems = GetComponentsInChildren<GameItem>();
 
         for (int i = 0; i < _gameItems.Length; i++)
