@@ -1,16 +1,19 @@
 using TMPro;
-using UnityEngine.UI;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UIItem : MonoBehaviour
 {
     [SerializeField] private Image image;
     [SerializeField] private TextMeshProUGUI countText;
+
     private int _count;
+
     public void SetSprite(Sprite sprite)
     {
         image.sprite = sprite;
     }
+
     public void SetCount(int count)
     {
         _count = count;
@@ -29,5 +32,4 @@ public class UIItem : MonoBehaviour
             gameObject.SetActive(false);
         }
     }
-
 }

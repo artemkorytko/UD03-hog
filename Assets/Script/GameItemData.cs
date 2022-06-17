@@ -10,11 +10,12 @@ public class GameItemData
         Sprite = sprite;
         Amount = 1;
     }
-    public void IncreAmaunt()
+
+    public void IncreaseAmount()
     {
         Amount++;
     }
-    
+
     public bool DecreaseAmount()
     {
         Amount--;
@@ -22,9 +23,7 @@ public class GameItemData
         {
             return false;
         }
-        {
-            return true;
-        }
 
+        return true;
     }
-} 
+}
