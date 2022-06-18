@@ -7,12 +7,12 @@ public class Level : MonoBehaviour
     private GameItem[] _gameItems;
     private int _itemsCount;
 
-    public event Action OnCompleted;
-    public event Action<string> OnItemListChanged;
+    public event Action OnCompleted; 
+    public event Action<string> OnItemListChanged; 
 
-    public void Initialized()
+    public void Initialize()
     {
-        _gameItems = GetComponentInChildren<GameItem>();
+        _gameItems = GetComponentsInChildren<GameItem>();
 
         for (int i = 0; i < _gameItems.Length; i++)
         {
@@ -40,9 +40,9 @@ public class Level : MonoBehaviour
     {
         Dictionary<string, GameItemData> itemsData = new Dictionary<string, GameItemData>();
 
-            for (int i = 0; i < _gameItems.Length; i++)
-            {
-                string key = _gameItems[i].Name;
+        for (int i = 0; i < _gameItems.Length; i++)
+        {
+            string key = _gameItems[i].Name;
             if (itemsData.ContainsKey(key))
             {
                 itemsData[key].IncreaseAmount();
@@ -52,6 +52,7 @@ public class Level : MonoBehaviour
                 itemsData.Add(key, new GameItemData(_gameItems[i].Sprite));
             }
         }
+
         return itemsData;
     }
 }

@@ -25,7 +25,7 @@ public class UIItem : MonoBehaviour
     public void Decrease()
     {
         _count--;
-        if(_count > 0)
+        if (_count > 0)
         {
             countText.text = _count.ToString();
         }
@@ -33,17 +33,5 @@ public class UIItem : MonoBehaviour
         {
             gameObject.SetActive(false);
         }
-       
-    }
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

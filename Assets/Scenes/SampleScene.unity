@@ -175,7 +175,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 0.63529414, g: 0.63529414, b: 0.63529414, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -355,7 +355,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Start
+  m_text: Next Level
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -382,8 +382,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 73.7
-  m_fontSizeBase: 73.7
+  m_fontSize: 56.14
+  m_fontSizeBase: 56.14
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 0
@@ -606,7 +606,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 817816487}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1833646378}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: StartGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &817816487
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -816,7 +828,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1014793066
 RectTransform:
   m_ObjectHideFlags: 0
@@ -858,6 +870,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce5835c73eb194b40b14486aca6495bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  content: {fileID: 2004814160}
+  prefab: {fileID: 8912500329179148174, guid: 580ae66c52de2534095c607e9354db69, type: 3}
 --- !u!1 &1209269227
 GameObject:
   m_ObjectHideFlags: 0
@@ -941,7 +955,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1209269230}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1833646378}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: StartNewGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1209269230
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1144,6 +1170,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e0c64f5a90eb8f47b262b4e6871a2f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  allLevels:
+  - {fileID: -7067076493865111250, guid: 62f2e6a2bb66132439827349e3762d52, type: 3}
+  mainPanel: {fileID: 896828197}
+  gamePanel: {fileID: 1014793068}
+  winPanel: {fileID: 345763982}
 --- !u!4 &1833646379
 Transform:
   m_ObjectHideFlags: 0
@@ -1364,8 +1395,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 238.2}
+  m_AnchoredPosition: {x: 0, y: 0.0010484861}
+  m_SizeDelta: {x: -1013, y: 238.2}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &2004814161
 MonoBehaviour:

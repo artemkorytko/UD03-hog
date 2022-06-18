@@ -9,14 +9,13 @@ public class GameItem : MonoBehaviour
     public Sprite Sprite;
     public string Name;
     private SpriteRenderer _spriteRenderer;
-    public event Action<string> OnFind;
+    public event Action<string> OnFind; 
 
-    private void Start()
+    private void Awake()
     {
         _spriteRenderer = GetComponent<SpriteRenderer>();
         Name = _spriteRenderer.sprite.name;
         Sprite = _spriteRenderer.sprite;
-
     }
 
     private void OnMouseUpAsButton()
