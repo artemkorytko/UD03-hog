@@ -1,23 +1,29 @@
-using System;
-using UnityEngine;
+using System;//подключение библиотеки 
+using UnityEngine;//подключение библиоткu 
 
-public class GameItem : MonoBehaviour
+public class GameItem : MonoBehaviour//создание публичного класса, который будем искать в игре, наследуемого базового класса Monobehavior
 {
-    private SpriteRenderer _spriteRenderer;
+    public Sprite Sprite;//создание картинки объекта публичного типа 
+    public string Name;//создание имени объекта публичного типа, использование типа string для строковых значений
+    private SpriteRenderer _spriteRenderer;//создание компонента, который будет отображать картнку объекта,приватного типа
 
-    private void Start()
+    public event Action<string> OnFind;// создание события публичного типа, который будет вызываться,когда объект будет найден и возвращать строковое значение(имя объекта) 
+
+    private void Awake()//приватный метод,который срабатывает перед методом Start для отображения игровых объектов в игре
     {
-        _spriteRenderer = GetComponent<SpriteRenderer>();
-        
+        _spriteRenderer = GetComponent<SpriteRenderer>();//получаем ссылку на компонент, который находится на объекте
+        Name = _spriteRenderer.sprite.name;//у компонента получаем имя картчнки
+        Sprite = _spriteRenderer.sprite;//у компонента получаем ссылку на картинку
     }
 
-    private void OnMouseUpAsButton()
+    private void OnMouseUpAsButton()//приватный метод, который будет вызываться, когда срабатывает нажатие на объект, у которого есть компонент Box Collider
     {
-        Find();
+        Find();//вызываем метод,который говорит,что объект найден
     }
 
-    private void Find()
+    private void Find()//создание метода,который будет отображать сообщение при нахождении объекта
     {
-        Debug.Log($"Find object {gameObject.name}");
+        Debug.Log($"Find object {gameObject.name}");//выводи в консоль сообщение с именем gameObject
+        OnFind.Invoke(Name);//вызов события с помощью фунции вызова, с передачей имени объекта
     }
 }

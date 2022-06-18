@@ -1,29 +1,29 @@
-using UnityEngine;
+using UnityEngine;//подключение библиотеки
 
-public class GameItemData
+public class GameItemData//создание публичного класса, который будет прибавлять,отнимать количество игровых объектов в игре
 {
-   private Sprite _sprite;
-   private int _amount;
+   public Sprite Sprite;//создание картинки публичного типа
+   public int Amount;//создание количества объектов целочисленного типа
 
-   public GameItemData(Sprite sprite)
+   public GameItemData(Sprite sprite)//создание публичного класса для отображения количества объектов в игровой панели
    {
-      _sprite = sprite;
-      _amount = 1;
+      Sprite = sprite;//присвоение спрайта
+      Amount = 1;//присвоение количества спрайта
    }
 
-   public void IncreaseAmount()
+   public void IncreaseAmount()//метод увеличение количества объектов
    {
-      _amount++;
+      Amount++;//увеличение количества на +1
    }
 
-   public bool DecreaseAmount()
+   public bool DecreaseAmount()//публичный флаговый метод,уменьшения количества
    {
-      _amount--;
-      if (_amount <= 0)
+      Amount--;//уменьшение количества на -1
+      if (Amount <= 0)//выполнение условия,если количество меньше,либо равно 0
       {
-         return false;
+         return false;//то возвращяем булевое значение,который является неправдой
       }
 
-      return true;
+      return true;//возвращаем булевое значение правда
    }
 }

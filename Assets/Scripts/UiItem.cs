@@ -1,18 +1,35 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+using UnityEngine;//подключение библиотеки
+using UnityEngine.UI;//подключение библиотеки для работы с канвасом,UI панелью
+using TMPro;//подключение библиотеки для работы с текстом
 
-public class UiItem : MonoBehaviour
+public class UIItem : MonoBehaviour//создание публичного класса для отображения картинки и текста в игровой панели
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+   [SerializeField] private Image image;//создание приватной картинки игровой панели, для отображения в инспекторе
+   [SerializeField] private TextMeshProUGUI countText;//создание приватного текста для отображение в инспекторе
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+   private int _count;//создание целочисленной переменной количества
+
+   public void SetSprite(Sprite sprite)//публичный метод для присвоения спрайта в переменную
+   {
+      image.sprite = sprite;//присвоение картинки
+   }
+
+   public void SetCount(int count)//публичный метод для присвоения текста из целочисленного значения в строковое,для отображения в игровой панели
+   {
+      _count = count;//присвоение целочисленной переменной к переменной количества
+      countText.text = _count.ToString();//преобразование целочисленной переменной в строковое значение для отображения в игровой панели
+   }
+
+   public void Decrease()//метод отнимания количества объектов в игровой панели
+   {
+      _count--;//отнимание количества на -1
+      if (_count > 0)//выполнение условия, если количество больше 0,то
+      {
+         countText.text = _count.ToString();//преобразует целочисленной переменной в строковое значение для отображения в игровой панели
+      }
+      else//иначе
+      {
+         gameObject.SetActive(false);//отключает игровой объект
+      }
+   }
 }
