@@ -152,6 +152,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afb71d46707700b41a1ea33b45b6cbeb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _allLevels:
+  - {fileID: 4678833799814793886, guid: dfd12d17c4e038244aea6bfbb4183acc, type: 3}
+  - {fileID: 5404263370132880155, guid: 7c72c8cb52bb76c4a87e8666a344a7e7, type: 3}
+  _mainPanel: {fileID: 1499663768}
+  _gamePanel: {fileID: 1874300311}
+  _winPanel: {fileID: 761083500}
 --- !u!4 &15931144
 Transform:
   m_ObjectHideFlags: 0
@@ -698,7 +704,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 424079213}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 15931143}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: StartNewGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &424079213
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1437,7 +1455,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1640047698}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 15931143}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: StartGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1640047698
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1638,5 +1668,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ab4d6cf191e0844c82d4e3e8d9788fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _content: {fileID: 0}
-  _prefab: {fileID: 0}
+  _content: {fileID: 181228066}
+  _prefab: {fileID: 2239796813576116828, guid: 8a98fa408f44ea44d8f882bb0a090f9f, type: 3}

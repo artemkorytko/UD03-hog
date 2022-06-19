@@ -12,6 +12,7 @@ public class Level : MonoBehaviour
 
     public void Initialize()
     {
+        
         _gameItems = GetComponentsInChildren<GameItem>();
 
         for(int i = 0; i < _gameItems.Length; i++)
@@ -39,7 +40,7 @@ public class Level : MonoBehaviour
     {
         Dictionary<string, GameItemData> itemsData = new Dictionary<string, GameItemData>();
 
-        for(int i = 0; i < _gameItems.Length; i++)
+        for (int i = 0; i < _gameItems.Length; i++)
         {
             if (itemsData.ContainsKey(_gameItems[i].Name))
             {

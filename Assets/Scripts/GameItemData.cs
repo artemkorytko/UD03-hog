@@ -20,6 +20,11 @@ public class GameItemData
     {
         Amount--;
 
-        return Amount > 0;
+        if (Amount <= 0)
+        {
+            return false;
+        }
+
+        return true;
     }
 }

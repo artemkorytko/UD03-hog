@@ -9,7 +9,7 @@ public class GameItem : MonoBehaviour
 
     public event Action<String> OnFind;
 
-    private void Start()
+    private void Awake()
     {
         _spriteRenderer = GetComponent<SpriteRenderer>();
         Name = _spriteRenderer.sprite.name;
@@ -24,6 +24,6 @@ public class GameItem : MonoBehaviour
     private void Find()
     {
         Debug.Log($"Find object{gameObject.name}");
-        OnFind.Invoke(name);
+        OnFind.Invoke(Name);
     }
 }
