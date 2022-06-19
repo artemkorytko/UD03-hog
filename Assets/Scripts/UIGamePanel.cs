@@ -4,39 +4,39 @@ using UnityEngine;
 
 public class UIGamePanel : MonoBehaviour
 {
-    [SerializeField] private RectTransform content;
-    [SerializeField] private UIItem prefab;
-    Dictionary<string, UIItem> items = new Dictionary<string, UIItem>();
+    [SerializeField] private RectTransform content;//ссылка куда добавляется наша картинка что мы ищем
+    [SerializeField] private UIItem prefab;//ссылка на наш игровой префаб
+    Dictionary<string, UIItem> items = new Dictionary<string, UIItem>();//
 
-    public void Initialize(Level level)
+    public void Initialize(Level level)//метод который инициализирует игровую панель
     {
-        foreach (var key in items.Keys)
+        foreach (var key in items.Keys)//проходимся по всем ключам
         {
-            Destroy(items[key].gameObject);
+            Destroy(items[key].gameObject);// дестроит все геймобджекты
         }
-        items.Clear();
+        items.Clear();// чистим дату
         
-        GenerateList(level.GetItemDictionary());
+        GenerateList(level.GetItemDictionary());// создаем новый обьект
 
-        level.OnItemListChanged += OnItemListChanged;
+        level.OnItemListChanged += OnItemListChanged;// подписываемся на уровень
     }
 
-    private void OnItemListChanged(string name)
+    private void OnItemListChanged(string name)//метод
     {
-        if (items.ContainsKey(name))
+        if (items.ContainsKey(name))//если айтем содержит ключ
         {
-            items[name].Decrease();
+            items[name].Decrease();//то мы его убераем
         }
     }
 
-    private void GenerateList(Dictionary<string, GameItemData> itemsData)
+    private void GenerateList(Dictionary<string, GameItemData> itemsData)//метод
     {
-        foreach (var key in itemsData.Keys)
+        foreach (var key in itemsData.Keys)//перебираем каждый ключ нашего словаря
         {
             UIItem item = Instantiate(prefab, content);
-            item.SetSprite(itemsData[key].Sprite);
-            item.SetCount(itemsData[key].Amount);
-            items.Add(key, item);
+            item.SetSprite(itemsData[key].Sprite);// присваиваем итему спрайт
+            item.SetCount(itemsData[key].Amount);// присваиваем итему количество
+            items.Add(key, item);// даем итему ключ
         }
     }
 }

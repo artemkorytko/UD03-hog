@@ -4,50 +4,50 @@ using System;
 
 public class Level : MonoBehaviour
 {
-    private GameItem[] _gameItems;
-    private int _itemsCount;
+    private GameItem[] _gameItems;//переменная которая хранит наши обьекты
+    private int _itemsCount;//переменная считающая кол-во обьектов
 
-    public event Action OnCompleted; 
-    public event Action<string> OnItemListChanged; 
+    public event Action OnCompleted; //вызывает событие что ур пройден
+    public event Action<string> OnItemListChanged; //
 
-    public void Initialize()
+    public void Initialize()//метод инициализирующий гейм мэнэджера
     {
-        _gameItems = GetComponentsInChildren<GameItem>();
+        _gameItems = GetComponentsInChildren<GameItem>();//находит все обьекты в чаилдах в игре у кого есль компонент GAMEITEMS(SCRIPT)
 
-        for (int i = 0; i < _gameItems.Length; i++)
+        for (int i = 0; i < _gameItems.Length; i++)//цикл повторения
         {
-            _gameItems[i].OnFind += OnFindItem;
+            _gameItems[i].OnFind += OnFindItem;// тело цикла вызывает реакцию у левла что обьект нашелся
         }
 
-        _itemsCount = _gameItems.Length;
+        _itemsCount = _gameItems.Length;//говорит сколько айтемов тут есть 
     }
 
-    private void OnFindItem(string name)
+    private void OnFindItem(string name)// метод для левла что обьект нашелся
     {
-        _itemsCount--;
+        _itemsCount--;//когда обьект нашелся кол-во итемов уменьшится на 1 
 
-        if (_itemsCount > 0)
+        if (_itemsCount > 0)// если больше 0
         {
-            OnItemListChanged.Invoke(name);
+            OnItemListChanged.Invoke(name);// то говорит кого убрать 
         }
-        else
+        else// если <=0
         {
-            OnCompleted.Invoke();
+            OnCompleted.Invoke();// игра заканчивается
         }
     }
 
-    public Dictionary<string, GameItemData> GetItemDictionary()
+    public Dictionary<string, GameItemData> GetItemDictionary()//массив отвечающий - сколько обьектов есть
     {
-        Dictionary<string, GameItemData> itemsData = new Dictionary<string, GameItemData>();
+        Dictionary<string, GameItemData> itemsData = new Dictionary<string, GameItemData>();//словарь с ключем и информацией о уникальных обьектах на сцене
 
-        for (int i = 0; i < _gameItems.Length; i++)
+        for (int i = 0; i < _gameItems.Length; i++)//перебираем игровые обьекты
         {
-            string key = _gameItems[i].Name;
-            if (itemsData.ContainsKey(key))
+            string key = _gameItems[i].Name;// локальная переменная нашему ключу
+            if (itemsData.ContainsKey(key))// если содержит какой то ключь
             {
-                itemsData[key].IncreaseAmount();
+                itemsData[key].IncreaseAmount();//увеличиваем значение
             }
-            else
+            else// сли нет такого ключа то мы его создаем
             {
                 itemsData.Add(key, new GameItemData(_gameItems[i].Sprite));
             }
