@@ -1,31 +1,31 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class GameItemData
+//подлюченные библиотеки
+public class GameItemData //объявляем класс GameItemData, не наследуем от MonoBehaviour, т.к. будем внутри объявлять конструктор
 {
-    public Sprite Sprite;
-    public int Amount;
+    public Sprite Sprite; //объявляем переменную типа Sprite с именем Sprite
+    public int Amount; //объявляем переменную типа int с именем Amount
 
-    public GameItemData(Sprite sprite)
+    public GameItemData(Sprite sprite) //объявляем конструктор с именем класса, на вход получаем переменную типа Sprite с локальным именем sprite
     {
-        Sprite = sprite;
-        Amount = 1;
+        Sprite = sprite; //инициилизируем переменную спрайтом, пришедшим в метод
+        Amount = 1; //инициилизируем int переменную. Равна 1
     }
 
-    public void IncreaseAmount()
+    public void IncreaseAmount() //объявляем наш метод IncreaseAmount, публичный, ничего не возвращает
     {
-        Amount++;
+        Amount++; //увеличиваем значение нашей int переменной на 1
     }
 
-    public bool DecreaseAmount()
+    public bool DecreaseAmount() //объявляем наш метод DecreaseAmount, публичный, возвращает логическое значение true/false. 
     {
-        Amount--;
-        if(Amount <= 0)
+        Amount--; //уменьшаем значение нашей int переменной на 1
+        if(Amount <= 0) //проверка на значение <=0
         {
-            return false;
+            return false; //если значение 0 или меньше, метод возвращает false
         }
 
-        return true;
+        return true; //иначе метод вернет true
     }
 }
