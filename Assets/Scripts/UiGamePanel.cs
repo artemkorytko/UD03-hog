@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UiPanel : MonoBehaviour
+public class UiGamePanel : MonoBehaviour
 {
     [SerializeField] private RectTransform content;
-    [SerializeField] private UIitem prefab;
-    Dictionary<string, UIitem> items = new Dictionary<string, UIitem>();
+    [SerializeField] private UIItem prefab;
+    Dictionary<string, UIItem> items = new Dictionary<string, UIItem>();
 
     public void Initialize(Level level)
     {
@@ -33,7 +33,7 @@ public class UiPanel : MonoBehaviour
     {
         foreach (var key in itemsData.Keys)
         {
-            Uitem item = Instantiate(prefab, content);
+            UIItem item = Instantiate(prefab, content);
             item.SetSprite(itemsData[key].Sprite);
             item.SetCount(itemsData[key].Amount);
             items.Add(key, item);

@@ -223,7 +223,7 @@ GameObject:
   - component: {fileID: 5682635459086857891}
   - component: {fileID: 2906328935027036686}
   m_Layer: 5
-  m_Name: UiItem
+  m_Name: UIItem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -263,6 +263,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b01933138298d94e883228ad66d8a00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  image: {fileID: 8251390171413452718}
+  countText: {fileID: 3808590885720448105}
 --- !u!1 &4028283687173032005
 GameObject:
   m_ObjectHideFlags: 0

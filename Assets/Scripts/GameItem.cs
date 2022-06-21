@@ -1,28 +1,30 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class GameItem : MonoBehaviour
 {
-    private SpriteRenderer _spriteRenderer;
-   
-    void Start()
-    {
-        _spriteRenderer = GetComponent<SpriteRenderer>() ;
-        
-    }
-
-    private void OnMouseUpAsButton()
-    {
+   public Sprite Sprite;
+     public string Name;
+     private SpriteRenderer _spriteRenderer;
+     public event Action<string> OnFind; 
+  
+     private void Awake()
+     {
+        _spriteRenderer = GetComponent<SpriteRenderer>();
+        Name = _spriteRenderer.sprite.name;
+        Sprite = _spriteRenderer.sprite;
+     }
+  
+     private void OnMouseUpAsButton()
+     {
         Find();
-    }
-
-    private void Find()
-    {
-        Debug.Log($"Find oject{gameObject.name}");
-    }
-    void Update()
-    {
-        
-    }
+     }
+  
+     private void Find()
+     {
+        Debug.Log($"Find object {gameObject.name}");
+        OnFind.Invoke(Name);
+     } 
 }

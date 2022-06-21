@@ -1,10 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
-using Microsoft.Unity.VisualStudio.Editor;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class UIitem : MonoBehaviour
+public class UIItem : MonoBehaviour
 {
     [SerializeField] private Image image;
     [SerializeField] private TextMeshProUGUI countText;
