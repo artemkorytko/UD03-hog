@@ -6,7 +6,7 @@ public class UIGamePanel : MonoBehaviour
 {
     [SerializeField] private RectTransform content;//ссылка куда добавляется наша картинка что мы ищем
     [SerializeField] private UIItem prefab;//ссылка на наш игровой префаб
-    Dictionary<string, UIItem> items = new Dictionary<string, UIItem>();//
+    Dictionary<string, UIItem> items = new Dictionary<string, UIItem>();//словарь который хранит экземпляры объектов
 
     public void Initialize(Level level)//метод который инициализирует игровую панель
     {
@@ -33,7 +33,7 @@ public class UIGamePanel : MonoBehaviour
     {
         foreach (var key in itemsData.Keys)//перебираем каждый ключ нашего словаря
         {
-            UIItem item = Instantiate(prefab, content);
+            UIItem item = Instantiate(prefab, content);//создаём объект
             item.SetSprite(itemsData[key].Sprite);// присваиваем итему спрайт
             item.SetCount(itemsData[key].Amount);// присваиваем итему количество
             items.Add(key, item);// даем итему ключ

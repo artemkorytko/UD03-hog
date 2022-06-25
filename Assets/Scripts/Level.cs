@@ -8,7 +8,7 @@ public class Level : MonoBehaviour
     private int _itemsCount;//переменная считающая кол-во обьектов
 
     public event Action OnCompleted; //вызывает событие что ур пройден
-    public event Action<string> OnItemListChanged; //
+    public event Action<string> OnItemListChanged; //событие которые вызовется при нахождении объекта, то не в случае завершения уровня, когда нам требуется обновить список доступных для поиска объектов
 
     public void Initialize()//метод инициализирующий гейм мэнэджера
     {

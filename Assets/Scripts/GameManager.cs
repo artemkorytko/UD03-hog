@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject winPanel;// ссылка гейм обджекту на винПанел
 
     private int _currentLevelIndex;// локальная переменная 
-    private Level _currentLevel;//?
+    private Level _currentLevel;//ссылка на текущий экземпляр уровня
 
     private void Awake()// метод который запускается первее метода Старт
     {
@@ -33,8 +33,8 @@ public class GameManager : MonoBehaviour
     private void CreateLevel()//метод создания обьекта на сцене
     {
         _currentLevel = InstantiateLevel(_currentLevelIndex);// писваиваем функционал создания обьектов
-        _currentLevel.name = Random.Range(0, 100).ToString();
-        _currentLevel.Initialize();
+        _currentLevel.name = Random.Range(0, 100).ToString();//просто рандомное имя уровня, чтоб видеть в редакторе разницу
+        _currentLevel.Initialize();//инициализируем новый уровень
     }
 
     private Level InstantiateLevel(int index)// метод проверки на создание уровня 
@@ -54,12 +54,12 @@ public class GameManager : MonoBehaviour
 
     private void LoadData()// метод 
     {
-        _currentLevelIndex = PlayerPrefs.GetInt("level_index", 0);// переменная (присваиваем из системы сохран.) получить индекс уровня 0, он же 1ый уровень
+        _currentLevelIndex = PlayerPrefs.GetInt("level_index", 0);// переменная (присваиваем из системы сохран.) получить индекс уровня 0, он же 1ый уровень,0 это дефолтное значение, если не было присвоено что либо другое
     }
 
     private void SaveData()// метод сохранения даты
     {
-        PlayerPrefs.SetInt("level_index", _currentLevelIndex);//
+        PlayerPrefs.SetInt("level_index", _currentLevelIndex);//сохраняем номер последнего уровня что играли
     }
 
     public void StartGame()//медод описывающий когда происходит старт игры
